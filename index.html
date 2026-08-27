@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="אתר אישי לבניית אתרים ועיצוב אתרים">
+
+    <meta name="author" content="Ilai">
+
+    <title>Ilai Web | בניית אתרים</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            background: #07070c;
+            color: white;
+            direction: rtl;
+            overflow-x: hidden;
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+
+            height: 75px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding: 0 8%;
+
+            background: rgba(7, 7, 12, 0.92);
+
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid #242432;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+        }
+
+
+        .logo {
+
+            font-size: 26px;
+
+            font-weight: bold;
+
+            color: #00e5ff;
+
+            letter-spacing: 1px;
+        }
+
+
+        .logo span {
+            color: white;
+        }
+
+
+        nav a {
+
+            color: white;
+
+            text-decoration: none;
+
+            margin-right: 25px;
+
+            transition: 0.3s;
+
+            font-weight: bold;
+        }
+
+
+        nav a:hover {
+            color: #00e5ff;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero {
+
+            min-height: 750px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 60px 20px;
+
+            background:
+
+                radial-gradient(
+                    circle at 50% 40%,
+                    #123c4c 0%,
+                    #0b1820 25%,
+                    #07070c 65%
+                );
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        .hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 400px;
+
+            height: 400px;
+
+            background: #00e5ff;
+
+            opacity: 0.08;
+
+            border-radius: 50%;
+
+            filter: blur(100px);
+        }
+
+
+        .hero-content {
+
+            max-width: 900px;
+
+            position: relative;
+
+            z-index: 2;
+
+            animation: fadeUp 1s ease;
+        }
+
+
+        .small-title {
+
+            color: #00e5ff;
+
+            font-size: 18px;
+
+            margin-bottom: 20px;
+
+            font-weight: bold;
+        }
+
+
+        .hero h1 {
+
+            font-size: 70px;
+
+            line-height: 1.1;
+
+            margin-bottom: 25px;
+        }
+
+
+        .hero h1 span {
+
+            color: #00e5ff;
+
+            text-shadow: 0 0 30px rgba(0,229,255,0.5);
+        }
+
+
+        .hero p {
+
+            color: #aaa;
+
+            font-size: 20px;
+
+            line-height: 1.8;
+
+            max-width: 750px;
+
+            margin: 0 auto 40px;
+        }
+
+
+        /* ================= BUTTONS ================= */
+
+        .buttons {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .button {
+
+            padding: 16px 35px;
+
+            border-radius: 40px;
+
+            border: none;
+
+            background: #00e5ff;
+
+            color: #001014;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            text-decoration: none;
+
+            display: inline-block;
+
+            transition: 0.3s;
+        }
+
+
+        .button:hover {
+
+            transform: translateY(-4px) scale(1.04);
+
+            box-shadow:
+
+                0 0 15px #00e5ff,
+
+                0 0 40px rgba(0,229,255,0.5);
+        }
+
+
+        .button.secondary {
+
+            background: transparent;
+
+            color: white;
+
+            border: 1px solid #00e5ff;
+        }
+
+
+        .button.secondary:hover {
+
+            background: #00e5ff;
+
+            color: #001014;
+        }
+
+
+        /* ================= SECTIONS ================= */
+
+        .section {
+
+            padding: 110px 8%;
+
+            text-align: center;
+        }
+
+
+        .section-title {
+
+            font-size: 45px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .section-subtitle {
+
+            color: #888;
+
+            font-size: 18px;
+
+            margin-bottom: 60px;
+        }
+
+
+        /* ================= SERVICES ================= */
+
+        .cards {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 25px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .card {
+
+            width: 290px;
+
+            padding: 40px 28px;
+
+            background: linear-gradient(
+                145deg,
+                #12121c,
+                #0d0d14
+            );
+
+            border: 1px solid #272737;
+
+            border-radius: 22px;
+
+            transition: 0.4s;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        .card::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            right: 0;
+
+            width: 100%;
+
+            height: 2px;
+
+            background: #00e5ff;
+
+            transform: scaleX(0);
+
+            transition: 0.4s;
+        }
+
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+
+        .card:hover {
+
+            transform: translateY(-12px);
+
+            border-color: #00e5ff;
+
+            box-shadow:
+
+                0 20px 60px rgba(0,229,255,0.12);
+        }
+
+
+        .icon {
+
+            font-size: 50px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .card h3 {
+
+            font-size: 24px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .card p {
+
+            color: #999;
+
+            line-height: 1.8;
+        }
+
+
+        /* ================= PORTFOLIO ================= */
+
+        .portfolio {
+
+            background: #0b0b12;
+        }
+
+
+        .projects {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(280px, 1fr));
+
+            gap: 25px;
+
+            max-width: 1000px;
+
+            margin: auto;
+        }
+
+
+        .project {
+
+            min-height: 260px;
+
+            padding: 30px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: flex-end;
+
+            text-align: right;
+
+            border-radius: 22px;
+
+            border: 1px solid #292939;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    #151521,
+                    #09090f
+                );
+
+            transition: 0.4s;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        .project:hover {
+
+            transform: translateY(-8px);
+
+            border-color: #00e5ff;
+
+            box-shadow:
+
+                0 20px 60px rgba(0,229,255,0.1);
+        }
+
+
+        .project-number {
+
+            position: absolute;
+
+            top: 20px;
+
+            left: 25px;
+
+            font-size: 45px;
+
+            font-weight: bold;
+
+            color: rgba(0,229,255,0.12);
+        }
+
+
+        .project h3 {
+
+            font-size: 25px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .project p {
+
+            color: #999;
+
+            line-height: 1.6;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* ================= ABOUT ================= */
+
+        .about-box {
+
+            max-width: 900px;
+
+            margin: auto;
+
+            padding: 50px;
+
+            background: #11111a;
+
+            border: 1px solid #282838;
+
+            border-radius: 25px;
+
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+
+        .about-box p {
+
+            color: #aaa;
+
+            font-size: 19px;
+
+            line-height: 2;
+        }
+
+
+        .skills {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+
+            margin-top: 30px;
+        }
+
+
+        .skill {
+
+            padding: 10px 18px;
+
+            border-radius: 30px;
+
+            background: #171722;
+
+            border: 1px solid #303040;
+
+            color: #00e5ff;
+        }
+
+
+        /* ================= CONTACT ================= */
+
+        .contact {
+
+            background:
+
+                radial-gradient(
+                    circle at center,
+                    #102c36,
+                    #08080d 65%
+                );
+        }
+
+
+        .contact-box {
+
+            max-width: 750px;
+
+            margin: auto;
+
+            padding: 45px;
+
+            background: rgba(17,17,26,0.85);
+
+            border: 1px solid #292939;
+
+            border-radius: 25px;
+        }
+
+
+        .contact-box h2 {
+
+            font-size: 40px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .contact-box > p {
+
+            color: #999;
+
+            line-height: 1.7;
+
+            margin-bottom: 30px;
+        }
+
+
+        .email {
+
+            display: inline-block;
+
+            margin-bottom: 30px;
+
+            color: #00e5ff;
+
+            font-size: 20px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+
+        .email:hover {
+            text-decoration: underline;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+
+            text-align: center;
+
+            padding: 35px;
+
+            background: #050509;
+
+            color: #666;
+        }
+
+
+        footer span {
+            color: #00e5ff;
+        }
+
+
+        /* ================= BACK TO TOP ================= */
+
+        #topButton {
+
+            position: fixed;
+
+            bottom: 25px;
+
+            left: 25px;
+
+            width: 50px;
+
+            height: 50px;
+
+            border-radius: 50%;
+
+            border: 1px solid #00e5ff;
+
+            background: #101019;
+
+            color: #00e5ff;
+
+            font-size: 20px;
+
+            cursor: pointer;
+
+            display: none;
+
+            z-index: 999;
+
+            transition: 0.3s;
+        }
+
+
+        #topButton:hover {
+
+            background: #00e5ff;
+
+            color: #001014;
+        }
+
+
+        /* ================= ANIMATION ================= */
+
+        @keyframes fadeUp {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(30px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+            }
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 700px) {
+
+            nav {
+
+                height: auto;
+
+                padding: 20px;
+
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+
+            nav a {
+
+                margin-right: 8px;
+
+                font-size: 13px;
+            }
+
+
+            .hero {
+
+                min-height: 650px;
+            }
+
+
+            .hero h1 {
+
+                font-size: 43px;
+            }
+
+
+            .hero p {
+
+                font-size: 17px;
+            }
+
+
+            .section {
+
+                padding: 80px 20px;
+            }
+
+
+            .section-title {
+
+                font-size: 35px;
+            }
+
+
+            .about-box,
+            .contact-box {
+
+                padding: 30px 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <nav>
+
+        <div class="logo">
+            IL<span>AI</span> WEB
+        </div>
+
+
+        <div>
+
+            <a href="#home">בית</a>
+
+            <a href="#services">שירותים</a>
+
+            <a href="#portfolio">עבודות</a>
+
+            <a href="#about">אודות</a>
+
+            <a href="#contact">צור קשר</a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                🚀 בונה אתרים מודרניים
+            </div>
+
+
+            <h1>
+
+                האתר שלך מתחיל
+
+                <span>כאן.</span>
+
+            </h1>
+
+
+            <p>
+
+                אני בונה אתרים מודרניים,
+                מהירים ומרשימים לעסקים
+                ולאנשים שרוצים נוכחות
+                מקצועית באינטרנט.
+
+            </p>
+
+
+            <div class="buttons">
+
+                <a
+                    href="#contact"
+                    class="button"
+                >
+                    בואו נבנה משהו 🔥
+                </a>
+
+
+                <a
+                    href="#portfolio"
+                    class="button secondary"
+                >
+                    העבודות שלי
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= SERVICES ================= -->
+
+    <section class="section" id="services">
+
+        <h2 class="section-title">
+            מה אני מציע?
+        </h2>
+
+
+        <p class="section-subtitle">
+            פתרונות דיגיטליים בעיצוב מודרני
+        </p>
+
+
+        <div class="cards">
+
+
+            <div class="card">
+
+                <div class="icon">
+                    💻
+                </div>
+
+                <h3>
+                    בניית אתרים
+                </h3>
+
+                <p>
+                    בניית אתרים מודרניים
+                    המותאמים למחשב,
+                    לטלפון ולטאבלט.
+                </p>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <div class="icon">
+                    🎨
+                </div>
+
+                <h3>
+                    עיצוב
+                </h3>
+
+                <p>
+                    עיצוב נקי ומודרני
+                    שנותן לאתר שלך
+                    מראה מקצועי.
+                </p>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <div class="icon">
+                    ⚡
+                </div>
+
+                <h3>
+                    ביצועים
+                </h3>
+
+                <p>
+                    אתרים מהירים,
+                    נוחים לשימוש
+                    ומותאמים למובייל.
+                </p>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <div class="icon">
+                    🔐
+                </div>
+
+                <h3>
+                    סייבר
+                </h3>
+
+                <p>
+                    ידע והתפתחות
+                    בעולם הסייבר
+                    ואבטחת המידע.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= PORTFOLIO ================= -->
+
+    <section class="section portfolio" id="portfolio">
+
+        <h2 class="section-title">
+            העבודות שלי
+        </h2>
+
+
+        <p class="section-subtitle">
+            פרויקטים ואתרים שאני בונה
+        </p>
+
+
+        <div class="projects">
+
+
+            <div class="project">
+
+                <div class="project-number">
+                    01
+                </div>
+
+                <h3>
+                    אתר עסקי
+                </h3>
+
+                <p>
+                    אתר תדמית מודרני
+                    לעסק שרוצה להציג
+                    את השירותים שלו.
+                </p>
+
+                <a
+                    href="#contact"
+                    class="button"
+                >
+                    רוצים אתר כזה?
+                </a>
+
+            </div>
+
+
+
+            <div class="project">
+
+                <div class="project-number">
+                    02
+                </div>
+
+                <h3>
+                    אתר אישי
+                </h3>
+
+                <p>
+                    אתר אישי להצגת
+                    מידע, שירותים,
+                    פרויקטים ויצירת קשר.
+                </p>
+
+                <a
+                    href="#contact"
+                    class="button"
+                >
+                    רוצים אתר כזה?
+                </a>
+
+            </div>
+
+
+
+            <div class="project">
+
+                <div class="project-number">
+                    03
+                </div>
+
+                <h3>
+                    פרויקט חדש
+                </h3>
+
+                <p>
+                    המקום לפרויקט
+                    הבא שלך.
+                    אפשר להתחיל כאן.
+                </p>
+
+                <a
+                    href="#contact"
+                    class="button"
+                >
+                    בואו נדבר
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="section" id="about">
+
+        <h2 class="section-title">
+            קצת עליי
+        </h2>
+
+
+        <div class="about-box">
+
+            <p>
+
+                אני איליי, ואני לומד ומתפתח
+                בעולם התכנות, בניית האתרים
+                והסייבר.
+
+                המטרה שלי היא ליצור אתרים
+                שנראים מקצועיים, עובדים בצורה
+                חלקה ונותנים לעסק נוכחות
+                חזקה באינטרנט.
+
+            </p>
+
+
+            <div class="skills">
+
+                <div class="skill">
+                    HTML
+                </div>
+
+                <div class="skill">
+                    CSS
+                </div>
+
+                <div class="skill">
+                    JavaScript
+                </div>
+
+                <div class="skill">
+                    jQuery
+                </div>
+
+                <div class="skill">
+                    Cyber
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section class="section contact" id="contact">
+
+        <div class="contact-box">
+
+            <h2>
+                בואו נדבר 🚀
+            </h2>
+
+
+            <p>
+
+                רוצים אתר חדש?
+                צריכים אתר לעסק?
+                יש לכם רעיון לפרויקט?
+
+                שלחו לי הודעה ואחזור אליכם.
+
+            </p>
+
+
+            <a
+                class="email"
+                href="mailto:ilaicoan12345@gmail.com"
+            >
+                📧 ilaicoan12345@gmail.com
+            </a>
+
+
+            <br>
+
+
+            <a
+                class="button"
+                href="mailto:ilaicoan12345@gmail.com?subject=פנייה%20מהאתר&body=שלום%20איליי,%20אני%20מעוניין%20לדבר%20איתך%20לגבי%20בניית%20אתר."
+            >
+                שלח לי מייל 📩
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        © 2026
+
+        <span>
+            ILai Web
+        </span>
+
+        | כל הזכויות שמורות
+
+    </footer>
+
+
+
+    <!-- ================= TOP BUTTON ================= -->
+
+    <button id="topButton">
+        ↑
+    </button>
+
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+
+        /* כפתור חזרה למעלה */
+
+        const topButton =
+            document.getElementById("topButton");
+
+
+        window.addEventListener("scroll", function() {
+
+            if (window.scrollY > 400) {
+
+                topButton.style.display = "block";
+
+            } else {
+
+                topButton.style.display = "none";
+
+            }
+
+        });
+
+
+        topButton.onclick = function() {
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+        };
+
+
+    </script>
+
+
+</body>
+
+</html>
